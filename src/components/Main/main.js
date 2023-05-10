@@ -6,7 +6,7 @@ export default function Main(props) {
     return (
         <main>
             <Routes>
-                <Route path='/' element={<Hikes />} />
+                <Route path='/my-hikes' element={<Hikes />} />
                 <Route path='/hikes/:id' element={<Show />} />
             </Routes>
         </main>)
