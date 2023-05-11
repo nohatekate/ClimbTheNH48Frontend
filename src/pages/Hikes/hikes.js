@@ -26,6 +26,11 @@ export default function Hikes(props) {
     useEffect(() => { getHikes() }, [])
     console.log(`There are ${hikes.length} hikes available to render`)
 
+
+    const loading = () => {
+        return (<h1>Loading Hikes...</h1>)
+    }
+
     const loaded = () => {
         return hikes?.map((hike) => {
             return (
@@ -39,7 +44,7 @@ export default function Hikes(props) {
     return (
         <>
             <h1>🥾 Hikes Page 🥾 </h1>
-            {loaded()}
+            { isLoading ? loading() : loaded()}
         </>
 
     )
