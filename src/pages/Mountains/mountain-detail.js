@@ -1,31 +1,23 @@
-// import { useParams } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 
 
 
 export default function MountainDetail(props) {
-    console.log(props)
-    return (
-        <div>fucking test</div>
-    )
-
-
-    // const foundMountain = 
-
     // const {name} = useParams()
-    // data.find(m=> m.name==='Adams')
+
+    // let state = useParams()
+    let { state } = useLocation()
+    let { mountain } = state
+    console.log(state)
+    return (
+        <div>
+            <h2>Mountain Detail Page</h2>
+            <p>{mountain.name}</p>
+            <p>{mountain.elevation}</p>
+        </div>
 
 
-    //     try {
-    //         const foundPerson = await peopleAPI.detail(id)
-    //         return foundPerson
-    //     }catch(err){
-    //         console.log(err)
-    //         throw new Error(err)
-    //     }
-    // }
-
-    // export default function MountainDetails(){
-    //     return (<h2>Mountain Detail Page</h2>)
+    )
 }
 
 

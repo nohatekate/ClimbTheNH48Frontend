@@ -12,7 +12,8 @@ return (
             <Link to="/">Climb the NH 48
             </Link>
             <div>
-            Just trying to get everything working
+            <Link to="/nh-48">List of all mountains
+            </Link>
             </div>
         </nav>
     </header>)
