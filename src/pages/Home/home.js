@@ -1,9 +1,9 @@
-import data from '../../mountain-data/nh48mountains.json'
 
-export default function Mountains(props) {
-    return (
+
+export default function HOME(props){
+    return(
         <div>
-            <pre>{JSON.stringify(data, null, 2)}</pre>
+        This will eventually be the landing page. I envision a log in / out option and a short description of what my app does.
         </div>
     )
 }
