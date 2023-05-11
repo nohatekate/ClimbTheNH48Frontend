@@ -21,14 +21,14 @@ export default function MountainDetail(props) {
     })
 
     useEffect(() => {
-        setNewForm({ ...newForm, hiker: user?.sub })
+
     }, [isLoading])
 
-    if (isLoading) {
-        return <div>Loading ...</div>;
-    }
-    
-    
+    // if (isLoading) {
+    //     return <div>Loading ...</div>;
+    // }
+    console.log(user)
+
     // async function handleRequest() {
     //     try {
     //         const apiResponse = await getHike()
@@ -39,7 +39,7 @@ export default function MountainDetail(props) {
     //     }
     // }
 
-    
+
 
 
     const handleChange = (evt) => {
@@ -48,7 +48,7 @@ export default function MountainDetail(props) {
 
     const handleSubmit = async (evt) => {
 
-        evt.preventDefault(isAuthenticated)
+        evt.preventDefault()
 
         try {
             const options = {
@@ -56,9 +56,9 @@ export default function MountainDetail(props) {
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify(newForm)
+                body: JSON.stringify({ ...newForm, hiker: user.sub })
             }
-
+            console.log(options.body)
             const response = await fetch("http://localhost:4000/hike", options)
 
             if (response.ok) {
