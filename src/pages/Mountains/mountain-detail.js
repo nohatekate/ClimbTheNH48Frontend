@@ -14,7 +14,7 @@ export default function MountainDetail(props) {
         mountain: mountain.name,
         comments: "",
         date: "",
-        summit: false,
+        summit: "",
         // hiker: user.sub
     })
 
@@ -52,7 +52,12 @@ export default function MountainDetail(props) {
                 const response = await fetch("http://localhost:4000/hike", options)
                 
                 if(response.ok){
+                    setNewForm({ mountain: mountain.name,
+                        comments: "",
+                        date: "",
+                        summit: "",})
                     return response.json()
+
                 } else {
                     throw new Error("Invalid POST Request")
                 }
