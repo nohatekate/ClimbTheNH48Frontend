@@ -68,7 +68,7 @@ export default function MountainDetail(props) {
                 setNewForm(initialState)
                 setHikeIsLoading(true)
                 return response.json()
-
+                
             } else {
                 throw new Error("Invalid POST Request")
             }
@@ -82,6 +82,7 @@ export default function MountainDetail(props) {
 
     return (
         <>
+        
             <div>
                 <h1>{mountain.name}</h1>
                 <p>elevation {mountain.elevation}</p>
@@ -104,7 +105,7 @@ export default function MountainDetail(props) {
             <div>
 
                 <h2>Track Your Hike!</h2>
-                {isAuthenticated  ? (
+                {isAuthenticated ? (
                     <form onSubmit={handleSubmit}>
                         <input
                             type="text"
