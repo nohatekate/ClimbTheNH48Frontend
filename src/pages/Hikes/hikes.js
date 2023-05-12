@@ -37,21 +37,25 @@ export default function Hikes(props) {
     const loaded = () => {
 
         return hikes?.map((hike) => {
-            return (
-                <div key={hike._id}>
-                    <h1>{hike.mountain}</h1>
-                </div>
-            )
+            if (hike.hiker === user.sub) {
+                return (
+                    <div key={hike._id}>
+                        <h1>{hike.mountain}</h1>
+                        <p>{hike.hiker}</p>
+                    </div>)
+            }
+            
+            
         })
-    }
+}
 
-    return (
-        isAuthenticated &&
-        (<>
+return (
+    isAuthenticated &&
+    (<>
 
-            <h1>🥾 Hikes Page 🥾 </h1>
-            {isLoading ? loading() : loaded()}
-        </>)
+        <h1>🥾 Hikes Page 🥾 </h1>
+        {isLoading ? loading() : loaded()}
+    </>)
 
-    )
+)
 }

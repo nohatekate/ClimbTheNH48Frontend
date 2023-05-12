@@ -77,7 +77,7 @@ export default function MountainDetail(props) {
             <div>
 
                 <h2>Track Your Hike!</h2>
-                {isAuthenticated ? (
+                {isAuthenticated  ? (
                     <form onSubmit={handleSubmit}>
                         <input
                             type="text"
