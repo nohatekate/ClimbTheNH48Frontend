@@ -82,7 +82,6 @@ export default function MountainDetail(props) {
 
     return (
         <>
-
             <div>
                 <h1>{mountain.name}</h1>
                 <p>elevation {mountain.elevation}</p>
