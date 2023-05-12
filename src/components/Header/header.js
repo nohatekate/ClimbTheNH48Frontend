@@ -5,17 +5,21 @@ import LogoutButton from '../Logout.js';
 
 
 export default function Header(props) {
-return (
-    <header>
-        <nav>
-            <Link to="/">Climb the NH 48
-            </Link>
-            <div>
-            <Link to="/nh-48">List of all mountains
-            </Link>
-            <LoginButton/>
-            <LogoutButton/>
-            </div>
-        </nav>
-    </header>)
+    return (
+        <header>
+            <nav>
+                <Link to="/">Climb the NH 48
+                </Link>
+                <div>
+                    <div><Link to="/nh-48">List of all mountains
+                    </Link>
+                    </div>
+                    <Link to="/my-hikes">My Hikes</Link>
+                    <div>
+                        <LoginButton />
+                        <LogoutButton />
+                    </div>
+                </div>
+            </nav>
+        </header>)
 }
