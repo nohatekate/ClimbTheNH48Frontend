@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Washington",
+        "rank": "1",
+        "elevation": "6288"
+    },
+    {
+        "name": "Adams",
+        "rank": "2",
+        "elevation": "5774"
+    },
+    {
+        "name": "Jefferson",
+        "rank": "3",
+        "elevation": "5712"
+    },
+    {
+        "name": "Monroe",
+        "rank": "4",
+        "elevation": "5384"
+    }
+]
