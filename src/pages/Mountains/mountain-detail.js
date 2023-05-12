@@ -40,6 +40,7 @@ export default function MountainDetail(props) {
 
     useEffect(() => {
         getMountainHikes()
+        // eslint-disable-next-line
     }, [hikeIsLoading, isLoading])
 
 
@@ -67,7 +68,7 @@ export default function MountainDetail(props) {
                 setNewForm(initialState)
                 setHikeIsLoading(true)
                 return response.json()
-                
+
             } else {
                 throw new Error("Invalid POST Request")
             }
@@ -81,23 +82,25 @@ export default function MountainDetail(props) {
 
     return (
         <>
-        
+
             <div>
                 <h1>{mountain.name}</h1>
                 <p>elevation {mountain.elevation}</p>
 
             </div>
             {!hikeIsLoading && mountainHikes?.map((hike) => {
-            if (hike.hiker === user.sub) {
-                return (
-                    <div key={hike._id}>
-                        <p>{hike.date}</p>
-                        <p>{hike.comments}</p>
-                        {hike.summit && <p>✅</p>}
-                    </div>)
-            }
+                if (hike.hiker === user.sub) {
+                    return (
+                        <div key={hike._id}>
+                            <p>{hike.date}</p>
+                            <p>{hike.comments}</p>
+                            {hike.summit && <p>✅</p>}
+                        </div>)
+                } else {
+                    return null
+                }
 
-        })}
+            })}
             {/* I need something here that makes a conditional so that if the user has a hike they only see that hike - maybe eventually lead to an edit page / maybe also "create" page so we can create multiple hikes but I'm planning for one summit per mountain */}
             <div>
 

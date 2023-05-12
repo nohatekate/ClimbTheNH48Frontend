@@ -47,6 +47,8 @@ export default function Hikes(props) {
                         <p>{hike.comments}</p>
                         <p>{hike.summit}</p>
                     </div>)
+            }else{
+                return null
             }
 
 
