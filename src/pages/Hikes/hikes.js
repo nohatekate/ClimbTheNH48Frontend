@@ -51,15 +51,15 @@ export default function Hikes(props) {
 
 
         })
-    }
+}
 
-    return (
-        isAuthenticated &&
-        (<>
+return (
+    isAuthenticated &&
+    (<>
 
             <h1>🥾 Hikes Page 🥾</h1>
             {isLoading ? loading() : loaded()}
         </>)
 
-    )
+)
 }
