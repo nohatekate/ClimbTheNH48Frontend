@@ -1,12 +1,15 @@
 import { useState, useEffect } from 'react';
+import { useAuth0 } from "@auth0/auth0-react";
 
 export default function Hikes(props) {
 
     const [isLoading, setIsLoading] = useState(true)
     const [hikes, setHikes] = useState([]);
-
+    const { user, isAuthenticated } = useAuth0();
+    console.log(user)
     const BASE_URL = "http://localhost:4000/hike"
-
+    // I need conditionals in here that say if the user has hikes then show the mountain with the hike details - if no hikes message to tel them to get hiking and check mountains off the list
+    //if hiker === logged in user show all their hikes
     const getHikes = async () => {
         const options = {
             method: "GET"
@@ -32,6 +35,7 @@ export default function Hikes(props) {
     }
 
     const loaded = () => {
+
         return hikes?.map((hike) => {
             return (
                 <div key={hike._id}>
@@ -42,10 +46,12 @@ export default function Hikes(props) {
     }
 
     return (
-        <>
+        isAuthenticated &&
+        (<>
+
             <h1>🥾 Hikes Page 🥾 </h1>
-            { isLoading ? loading() : loaded()}
-        </>
+            {isLoading ? loading() : loaded()}
+        </>)
 
     )
 }

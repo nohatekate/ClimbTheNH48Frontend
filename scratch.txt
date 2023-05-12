@@ -1,0 +1,13 @@
+    // const foundMountain = 
+
+    // data.find(m=> m.name==='Adams')
+
+
+    //     try {
+    //         const foundPerson = await peopleAPI.detail(id)
+    //         return foundPerson
+    //     }catch(err){
+    //         console.log(err)
+    //         throw new Error(err)
+    //     }
+    // 
