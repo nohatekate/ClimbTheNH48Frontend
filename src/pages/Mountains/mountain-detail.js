@@ -24,22 +24,6 @@ export default function MountainDetail(props) {
 
     }, [isLoading])
 
-    // if (isLoading) {
-    //     return <div>Loading ...</div>;
-    // }
-    console.log(user)
-
-    // async function handleRequest() {
-    //     try {
-    //         const apiResponse = await getHike()
-    //         setHike(apiResponse)
-    //         setIsLoading(false)
-    //     } catch (err) {
-    //         console.log(err)
-    //     }
-    // }
-
-
 
 
     const handleChange = (evt) => {
@@ -58,7 +42,7 @@ export default function MountainDetail(props) {
                 },
                 body: JSON.stringify({ ...newForm, hiker: user.sub })
             }
-            console.log(options.body)
+            // console.log(options.body)
             const response = await fetch("http://localhost:4000/hike", options)
 
             if (response.ok) {

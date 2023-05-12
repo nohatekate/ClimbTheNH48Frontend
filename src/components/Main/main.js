@@ -10,8 +10,9 @@ export default function Main(props) {
             <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path='/nh-48' element={<Mountains />} />
-                <Route path='/my-hikes' element={<Hikes />} />
                 <Route path='/nh-48/:name' element={<MountainDetail />} />
+                <Route path='/my-hikes' element={<Hikes />} />
+                
 
             </Routes>
         </main>)
