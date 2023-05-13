@@ -9,7 +9,6 @@ export default function Mountains(props) {
     const { isAuthenticated } = useAuth0();
     return (
 
-        isAuthenticated && (
         <div>
             <h1>The 48 NH 4000 footers</h1>
             {data.map(mountain => (
@@ -17,7 +16,7 @@ export default function Mountains(props) {
 
                 <div key={mountain.name}>
 
-                    <Link to={`/nh-48/${mountain.name}`} state={{ mountain }}>
+                    <Link to={`/nh-48/${mountain.name}`} state={{ mountain }} className={!isAuthenticated?"disabled-link": ""}>
                         {/* <h1>{mountain.rank}</h1> */}
                         <p>{mountain.name}</p>
                         <p>{mountain.elevation}</p>
@@ -28,7 +27,7 @@ export default function Mountains(props) {
 
         </div>
 
-    ))
+    )
 
 
 }
