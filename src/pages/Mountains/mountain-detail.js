@@ -41,6 +41,7 @@ export default function MountainDetail(props) {
 
     useEffect(() => {
         getMountainHikes()
+        // eslint-disable-next-line
     }, [hikeIsLoading, isLoading])
 
 
@@ -84,7 +85,7 @@ export default function MountainDetail(props) {
         <>
         
             <div>
-                <h1>{mountain.name}</h1>
+                <h1 className=''>{mountain.name}</h1>
                 <p>elevation {mountain.elevation}</p>
 
             </div>
@@ -97,6 +98,8 @@ export default function MountainDetail(props) {
                         {hike.summit && <p>✅</p>}
                         <Link to={`/hike/${hike._id}/edit`}><button>Edit Hike</button></Link>
                     </div>)
+            }else{
+                return null
             }
 
         })}
