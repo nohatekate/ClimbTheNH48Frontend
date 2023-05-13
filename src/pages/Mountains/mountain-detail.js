@@ -2,6 +2,7 @@ import { useLocation } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { useAuth0 } from "@auth0/auth0-react";
 import { HIKE_BASE_URL } from '../../utilities/constants'
+import { Link } from 'react-router-dom';
 
 export default function MountainDetail(props) {
 
@@ -94,6 +95,7 @@ export default function MountainDetail(props) {
                         <p>{hike.date}</p>
                         <p>{hike.comments}</p>
                         {hike.summit && <p>✅</p>}
+                        <Link to={`/hike/${hike._id}/edit`}><button>Edit Hike</button></Link>
                     </div>)
             }
 

@@ -4,6 +4,7 @@ import MountainDetail from '../../pages/Mountains/mountain-detail'
 import Mountains from '../../pages/Mountains/mountains.js';
 import Home from '../../pages/Home/home.js'
 import Profile from '../Profile.js'
+import Edit from '../../pages/Hikes/edit';
 
 export default function Main(props) {
     return (
@@ -14,6 +15,7 @@ export default function Main(props) {
                 <Route path='/nh-48/:name' element={<MountainDetail />} />
                 <Route path='/my-hikes' element={<Hikes />} />
                 <Route path='/profile'element={<Profile/>}/>
+                <Route path='/hike/:id/edit' element={<Edit/>}/>
                 
 
             </Routes>
