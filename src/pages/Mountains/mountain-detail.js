@@ -85,7 +85,7 @@ export default function MountainDetail(props) {
         <>
         
             <div>
-                <h1>{mountain.name}</h1>
+                <h1 className=''>{mountain.name}</h1>
                 <p>elevation {mountain.elevation}</p>
 
             </div>
