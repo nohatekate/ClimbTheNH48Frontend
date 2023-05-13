@@ -1,239 +1,242 @@
-[
-    {
+{
+    "washington": {
         "name": "Washington",
         "rank": "1",
         "elevation": "6288"
     },
-    {
+    "adams": {
         "name": "Adams",
         "rank": "2",
         "elevation": "5774"
     },
-    {
+    "jefferson": {
         "name": "Jefferson",
         "rank": "3",
         "elevation": "5712"
     },
-    {
+    "monroe": {
         "name": "Monroe",
         "rank": "4",
         "elevation": "5384"
     },
-    {
+    "madison": {
         "name": "Madison",
         "rank": "5",
         "elevation": "5367"
     },
-    {
+    "lafayette": {
         "name": "Lafayette",
         "rank": "6",
         "elevation": "5260"
     },
-    {
+    "lincoln": {
         "name": "Lincoln",
         "rank": "7",
         "elevation": "5089"
     },
-    {
+    "south-twin": {
         "name": "South Twin",
         "rank": "8",
         "elevation": "4902"
-    },{
+    },
+    "carter-dome": {
         "name": "Carter Dome",
         "rank": "9",
         "elevation": "4832"
     },
-    {
+    "moosilauke": {
         "name": "Moosilauke",
         "rank": "10",
         "elevation": "4802"
     },
-    {
+    "Eisenhower": {
         "name": "Eisenhower",
         "rank": "11",
         "elevation": "4708"
     },
-    {
+    "north-twin": {
         "name": "North Twin",
         "rank": "12",
         "elevation": "4761"
     },
-    {
+    "carrigain": {
         "name": "Carrigain",
         "rank": "13",
         "elevation": "4700"
     },
-    {
+    "bond": {
         "name": "Bond",
         "rank": "14",
         "elevation": "4698"
     },
-    {
+    "middle-carter": {
         "name": "Middle Carter",
         "rank": "15",
         "elevation": "4610"
     },
-    {
+    "west-bond": {
         "name": "West Bond",
         "rank": "16",
         "elevation": "4540"
     },
-    {
+    "garfield": {
         "name": "Garfield",
         "rank": "17",
         "elevation": "4500"
     },
-    {
+    "liberty": {
         "name": "Liberty",
         "rank": "18",
         "elevation": "4459"
     },
-    {
+    "south-carter": {
         "name": "South Carter",
         "rank": "19",
         "elevation": "4430"
     },
-    {
+    "wildcat-a-peak": {
         "name": "Wildcat, A peak",
         "rank": "20",
         "elevation": "4422"
     },
-    {
+    "hancock": {
         "name": "Hancock",
         "rank": "21",
         "elevation": "4420"
     },
-    {
+    "south-kinsman": {
         "name": "South Kinsman",
         "rank": "22",
         "elevation": "4358"
     },
-    {
+    "field": {
         "name": "Field",
         "rank": "23",
         "elevation": "4340"
     },
-    {
+    "osceola": {
         "name": "Osceola",
         "rank": "24",
         "elevation": "4340"
     },
-    {
+    "flume": {
         "name": "Flume",
         "rank": "25",
         "elevation": "4328"
     },
-    {
+    "south-hancock": {
         "name": "South Hancock",
         "rank": "26",
         "elevation": "4319"
-    },{
+    },
+    "pierce": {
         "name": "Pierce",
         "rank": "27",
         "elevation": "4310"
     },
-    {
+    "north-kinsman": {
         "name": "North Kinsman",
         "rank": "28",
         "elevation": "4293"
     },
-    {
+    "willey": {
         "name": "Willey",
         "rank": "29",
         "elevation": "4285"
     },
-    {
+    "bondcliff": {
         "name": "Bondcliff",
         "rank": "30",
         "elevation": "4265"
     },
-    {
+    "zealand": {
         "name": "Zealand",
         "rank": "31",
         "elevation": "4260"
     },
-    {
+    "north-tripyramid": {
         "name": "North Tripyramid",
         "rank": "32",
         "elevation": "4180"
     },
-    {
+    "cabot": {
         "name": "Cabot",
         "rank": "33",
         "elevation": "4170"
     },
-    {
+    "east-osceola": {
         "name": "East Osceola",
         "rank": "34",
         "elevation": "4156"
     },
-    {
+    "middle-tripyramid": {
         "name": "Middle Tripyramid",
         "rank": "35",
         "elevation": "4140"
     },
-    {
+    "licannonberty": {
         "name": "LiCannonberty",
         "rank": "36",
         "elevation": "4100"
     },
-    {
+    "hale": {
         "name": "Hale",
         "rank": "37",
         "elevation": "4054"
     },
-    {
+    "jackson": {
         "name": "Jackson",
         "rank": "38",
         "elevation": "4052"
     },
-    {
+    "tom": {
         "name": "Tom",
         "rank": "39",
         "elevation": "4051"
     },
-    {
+    "wildcat-d-peak": {
         "name": "Wildcat, D Peak",
         "rank": "40",
         "elevation": "4050"
     },
-    {
+    "moriah": {
         "name": "Moriah",
         "rank": "41",
         "elevation": "4049"
     },
-    {
+    "passaconaway": {
         "name": "Passaconaway",
         "rank": "42",
         "elevation": "4043"
     },
-    {
+    "owls-head": {
         "name": "Owl's Head",
         "rank": "43",
         "elevation": "4025"
     },
-    {
+    "galehead": {
         "name": "Galehead",
         "rank": "44",
         "elevation": "4024"
-    },{
+    },
+    "whiteface": {
         "name": "Whiteface",
         "rank": "45",
         "elevation": "4020"
     },
-    {
+    "waumbek": {
         "name": "Waumbek",
         "rank": "46",
         "elevation": "4006"
     },
-    {
+    "isolation": {
         "name": "Isolation",
         "rank": "47",
         "elevation": "4004"
     },
-    {
+    "tecumseh": {
         "name": "Tecumseh",
         "rank": "48",
         "elevation": "4003"
     }
-]
+}
