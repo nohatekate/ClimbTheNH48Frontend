@@ -18,5 +18,25 @@
         "name": "Monroe",
         "rank": "4",
         "elevation": "5384"
+    },
+    {
+        "name": "Madison",
+        "rank": "5",
+        "elevation": "5367"
+    },
+    {
+        "name": "Lafayette",
+        "rank": "6",
+        "elevation": "5260"
+    },
+    {
+        "name": "Lincoln",
+        "rank": "7",
+        "elevation": "5089"
+    },
+    {
+        "name": "South Twin",
+        "rank": "8",
+        "elevation": "4902"
     }
 ]
