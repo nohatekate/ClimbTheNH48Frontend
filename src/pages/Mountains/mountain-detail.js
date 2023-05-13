@@ -1,19 +1,18 @@
-import { useLocation } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { useAuth0 } from "@auth0/auth0-react";
 import { HIKE_BASE_URL } from '../../utilities/constants'
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+
+import mountainData from '../../mountain-data/nh48mountains.json'
 
 export default function MountainDetail(props) {
-
-    let { state } = useLocation()
-    let { mountain } = state
 
     const [hikeIsLoading, setHikeIsLoading] = useState(true)
     const { user, isAuthenticated, isLoading } = useAuth0();
     const [mountainHikes, setMountainHikes] = useState([]);
-    console.log(user.sub)
-    // const [isLoading, setIsLoading] = useState
+    const { mountainurl } = useParams();
+    const mountain = mountainData[mountainurl]
+
     const initialState = {
         mountain: mountain.name,
         comments: "",
@@ -30,7 +29,6 @@ export default function MountainDetail(props) {
         try {
             const response = await fetch(`${HIKE_BASE_URL}/${mountain.name}/${user.sub}`, options)
             const data = await response.json()
-            console.log("some stupid string", data)
             setMountainHikes(data)
             setHikeIsLoading(false)
         } catch (err) {
@@ -62,14 +60,13 @@ export default function MountainDetail(props) {
                 },
                 body: JSON.stringify({ ...newForm, hiker: user.sub })
             }
-            // console.log(options.body)
             const response = await fetch(HIKE_BASE_URL, options)
 
             if (response.ok) {
                 setNewForm(initialState)
                 setHikeIsLoading(true)
                 return response.json()
-                
+
             } else {
                 throw new Error("Invalid POST Request")
             }
@@ -80,10 +77,9 @@ export default function MountainDetail(props) {
         }
     }
 
-
     return (
         <>
-        
+
             <div>
                 <h1 className=''>{mountain.name}</h1>
                 <p>elevation {mountain.elevation}</p>
