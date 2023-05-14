@@ -27,7 +27,7 @@ export default function MountainDetail(props) {
             method: "GET"
         }
         try {
-            const response = await fetch(`${HIKE_BASE_URL}/${mountain.name}/${user.sub}`, options)
+            const response = await fetch(`${HIKE_BASE_URL}/${mountain.name}/${user?.sub}`, options)
             const data = await response.json()
             setMountainHikes(data)
             setHikeIsLoading(false)
@@ -80,9 +80,9 @@ export default function MountainDetail(props) {
     return (
         <>
 
-            <div>
+            <div className='flex justify-between mb-5 '>
                 <h1 className=''>{mountain.name}</h1>
-                <p>elevation {mountain.elevation}</p>
+                <p className=''>{mountain.elevation}ft</p>
 
             </div>
             {!hikeIsLoading && mountainHikes?.map((hike) => {
@@ -90,9 +90,9 @@ export default function MountainDetail(props) {
                     return (
                         <div key={hike._id}>
                             <p>{hike.date}</p>
-                            <p>{hike.comments}</p>
-                            {hike.summit && <p>✅</p>}
-                            <Link to={`/hike/${hike._id}/edit`}><button>Edit Hike</button></Link>
+                            <p >{hike.comments}</p>
+                            {hike.summit && <p >✅</p>}
+                            <Link to={`/hike/${hike._id}/edit`}><button className="rounded-lg px-3 py-2 text-tan bg-darkest-green font-medium hover:bg-tan hover:text-darkest-green ease-in-out duration-300 mb-5">Edit Hike</button></Link>
                         </div>)
                 } else {
                     return null
@@ -101,30 +101,30 @@ export default function MountainDetail(props) {
             })}
             <div>
 
-                <h2>Track Your Hike!</h2>
+                <h2 className='flex justify-center'>Track Your Hike!</h2>
                 {isAuthenticated ? (
-                    <form onSubmit={handleSubmit}>
-                        <input
-                            type="text"
+                    <form className="flex flex-col justify-center" onSubmit={handleSubmit}>
+                        <textarea
                             value={newForm.comments}
                             name="comments"
                             placeholder="Keep your favorite details about your hike here - weather, hiking companions"
-                            onChange={handleChange}
-                        />
-                        <input
-                            type="text"
-                            value={newForm.date}
-                            name="date"
-                            placeholder="date hiked"
-                            onChange={handleChange}
-                        />
-                        <input
-                            type="text"
-                            value={newForm.summit}
-                            name="summit"
-                            onChange={handleChange}
-                        />
-                        <input type="submit" value="Create Hike" />
+                            onChange={handleChange}></textarea>
+                        <div className='flex justify-between mb-5'>
+                            <input
+                                type="date"
+                                value={newForm.date}
+                                name="date"
+                                placeholder="date hiked"
+                                onChange={handleChange}
+                            />
+                            <input
+                                type="text"
+                                value={newForm.summit}
+                                name="summit"
+                                onChange={handleChange}
+                            />
+                        </div>
+                        <input className="rounded-lg px-3 py-2 text-tan bg-darkest-green font-medium hover:bg-tan hover:text-darkest-green ease-in-out duration-300 mb-5 max-w-xs" type="submit" value="Create Hike" />
                     </form>
                 ) : (
                     <p>Log in to track your hike</p>

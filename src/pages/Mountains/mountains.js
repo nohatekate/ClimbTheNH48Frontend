@@ -12,17 +12,21 @@ export default function Mountains(props) {
 
         <div>
 
-            <h1>The 48 NH 4000 footers</h1>
-
-            {Object.entries(mountainData).map(([key, value]) => (
-                <Link to={`/nh-48/${key}`} className={!isAuthenticated ? "disabled-link" : ""} key={key}>
-                    <div >
-                        <p>{value.name}</p>
-                        <p>{value.elevation}</p>
-                    </div>
-                </Link>
-            ))}
-
+            <h1 className="mb-5 flex justify-center">The 48 NH 4000 footers</h1>
+            <div className='flex flex-col flex-wrap space-y-9'>
+                {Object.entries(mountainData).map(([key, value]) => (
+                    <Link to={`/nh-48/${key}`} className={!isAuthenticated ? "disabled-link" : ""} key={key}>
+                        
+                            
+                                <div className='shadow-xl bg-tan p-5 m-1 max-w-2xl rounded-lg'>
+                                    <p>{value.name}</p>
+                                    <p>{value.elevation}ft</p>
+                                </div>
+                        
+                        
+                    </Link>
+                ))}
+            </div>
         </div>
     )
 

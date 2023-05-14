@@ -8,7 +8,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 export default function Header(props) {
     const { isAuthenticated } = useAuth0();
     return (
-        <header>
+        <header className='shadow-md '>
             <nav className="flex justify-between space-x-4 bg-darkest-green text-tan ">
                 <Link to={'/nh-48'} className={"rounded-lg px-3 py-2 text-tan font-medium hover:bg-tan hover:text-darkest-green ease-in-out duration-300 "}>NH-48</Link>
                 <div>
@@ -19,5 +19,6 @@ export default function Header(props) {
             </nav >
         </header >)
 }
+
 
 

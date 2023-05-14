@@ -42,3 +42,11 @@ padding: 1rem;
     @apply text-lg;
   }
 }
+
+textarea{
+  max-width: 50rem;
+  height: 10rem;
+  padding: 1rem;
+  margin: 1rem;
+  resize: none;
+}

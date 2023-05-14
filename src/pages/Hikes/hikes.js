@@ -41,11 +41,13 @@ export default function Hikes(props) {
         return hikes?.map((hike) => {
             if (hike.hiker === user.sub) {
                 return (
-                    <div key={hike._id}>
-                        <h1>{hike.mountain}</h1>
-                        <h2>{hike.date}</h2>
-                        <p>{hike.comments}</p>
-                        <p>{hike.summit}</p>
+                    <div className='flex flex-col flex-wrap space-y-9' key={hike._id}>
+                        <div className='shadow-xl bg-tan p-5 m-1 max-w-2xl rounded-lg'>
+                            <h1>{hike.mountain}</h1>
+                            <p>{hike.date}</p>
+                            <p >{hike.comments}</p>
+                            <p>{hike.summit}</p>
+                        </div>
                     </div>)
             }
 
@@ -57,7 +59,7 @@ export default function Hikes(props) {
         isAuthenticated &&
         (<>
 
-            <h1>🥾 Hikes Page 🥾</h1>
+            <h1 className="mb-5 flex justify-center">🥾 Hikes Page 🥾</h1>
             {isLoading ? loading() : loaded()}
         </>)
 

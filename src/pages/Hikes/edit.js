@@ -82,34 +82,36 @@ export default function Edit() {
 
     const loaded = () => (<>
         <div >
-            <h1>Edit Your Hike</h1>
+            <h1 clasname="mb-5">Edit Your Hike</h1>
 
-            <button onClick={handleHikeDelete}> Delete Hike</button>
         </div>
 
-        <form onSubmit={handleSubmit}>
-            <input
-                type="text"
-                value={editForm.comments}
-                name="comments"
-                placeholder="Keep your favorite details about your hike here - weather, hiking companions"
-                onChange={handleChange}
-            />
-            <input
-                type="text"
-                value={editForm.date}
-                name="date"
-                placeholder="date hiked"
-                onChange={handleChange}
-            />
-            <input
-                type="text"
-                value={editForm.summit}
-                name="summit"
-                onChange={handleChange}
-            />
-            <input type="submit" value="Update Hike" />
+        <form className="flex flex-col justify-center" onSubmit={handleSubmit}>
+        <textarea className='mb-5'
+                            value={editForm.comments}
+                            name="comments"
+                            placeholder="Keep your favorite details about your hike here - weather, hiking companions"
+                            onChange={handleChange}></textarea>
+            <div className='flex justify-between mb-5 space-x-0'>
+                <input
+                    type="date"
+                    value={editForm.date}
+                    name="date"
+                    onChange={handleChange}
+                />
+                <input
+                    type="text"
+                    value={editForm.summit}
+                    name="summit"
+                    onChange={handleChange}
+                />
+            </div>
+            <div className='flex justify-center space-x-4 mb-5'>
+            <button className="rounded-lg px-3 py-2 text-darkest-green bg-tan font-medium hover:bg-darkest-green hover:text-tan ease-in-out duration-300" type="submit" >Update Hike</button>
+            <button className="rounded-lg px-3 py-2 text-darkest-green bg-tan font-medium hover:bg-red-700 hover:text-white ease-in-out duration-300 "onClick={handleHikeDelete}> Delete Hike</button>
+            </div>
         </form>
+        
 
 
     </>)
