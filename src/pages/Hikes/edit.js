@@ -47,8 +47,8 @@ export default function Edit() {
 
             if (delResponse._id) {
 
-                // const mountainUrl = editForm.mountain.toLowerCase()
-                navigate(`/nh-48/${editForm.mountain.toLowerCase()}`)
+                const mountainUrl = editForm.mountain.toLowerCase()
+                navigate(`/nh-48/${mountainUrl}`)
             } else {
                 throw new Error("Something went wrong")
             }
