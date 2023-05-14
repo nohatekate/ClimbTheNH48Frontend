@@ -8,7 +8,7 @@ import Edit from '../../pages/Hikes/edit';
 
 export default function Main(props) {
     return (
-        <main>
+        <main className='flex flex-col items-center w-full '>
             <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path='/nh-48' element={<Mountains />} />

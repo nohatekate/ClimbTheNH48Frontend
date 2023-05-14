@@ -21,13 +21,10 @@ export default function Hikes(props) {
                 }
 
             }
-            console.log(options.headers)
-
 
             try {
                 const response = await fetch(`${HIKE_BASE_URL}`, options)
                 const allHikes = await response.json()
-                console.log(allHikes)
                 setHikes(allHikes)
                 setIsHikesLoading(false)
             } catch (err) {
@@ -44,7 +41,7 @@ export default function Hikes(props) {
 
     const loaded = () => {
         if (!hikes.length) {
-            return (<p>Once you start tracking your hikes they'll live here on this page. Come back anytime to check your progress!</p>)
+            return (<p className='flex text-center'>Once you start tracking your hikes they'll live here on this page. Come back anytime to check your progress!</p>)
         }
         return hikes.map((hike) => {
 

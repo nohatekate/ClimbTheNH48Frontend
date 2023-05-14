@@ -30,7 +30,6 @@ export default function MountainDetail(props) {
         try {
             const response = await fetch(`${HIKE_BASE_URL}/${mountain.name}/${user?.sub}`, options)
             const data = await response.json()
-            console.log(data)
             setMountainHikes(data)
             setHikeIsLoading(false)
         } catch (err) {
@@ -75,34 +74,23 @@ export default function MountainDetail(props) {
     return (
         <>
 
-            <div className='flex justify-between mb-5 '>
-                <h1 className=''>{mountain.name}</h1>
+            <div className='flex justify-between mb-5 w-full max-w-xl'>
+                <h1 className=''>Mt. {mountain.name}</h1>
                 <p className=''>{mountain.elevation}ft</p>
 
             </div>
-            {!hikeIsLoading && mountainHikes?.map((hike) => {
-                // if (hike.hiker === user.sub) {
-                    return (
-                        <div className='flex flex-col flex-wrap space-y-9' key={hike._id}>
-                            <div className='shadow-xl bg-tan p-5 m-3 max-w-2xl rounded-lg'>
-                                <p>{hike.date}</p>
-                                <p >{hike.comments}</p>
-                                {hike.summit && <p >✅</p>}
-                                <Link to={`/hike/${hike._id}/edit`}><button className="rounded-lg px-3 py-2 text-tan bg-darkest-green font-medium hover:bg-tan hover:text-darkest-green ease-in-out duration-300 mb-5 max-w-xs flex center">Edit Hike</button></Link>
-                            </div>
-                        </div>)
-                    })}
-            <div>
+
+            <div className='w-full'>
                 <h2 className='flex justify-center'>Track Your Hike!</h2>
                 {isAuthenticated ? (
-                    <form className="flex flex-col justify-center" onSubmit={handleSubmit}>
-                        <textarea
+                    <form className="flex flex-col items-center w-full " onSubmit={handleSubmit}>
+                        <textarea className='w-full shadow-sm   max-w-2xl rounded-lg'
                             value={newForm.comments}
                             name="comments"
                             placeholder="Keep your favorite details about your hike here - weather, hiking companions, etc."
                             onChange={handleChange}></textarea>
                         <div className='flex justify-between mb-5'>
-                            <input
+                            <input className='w-full shadow-sm  max-w-2xl rounded-sm mr-5 p-1'
                                 type="date"
                                 value={newForm.date}
                                 name="date"
@@ -123,6 +111,20 @@ export default function MountainDetail(props) {
                     <p>Log in to track your hike</p>
                 )}
             </div>
+
+            {!hikeIsLoading && mountainHikes?.map((hike) => {
+                // if (hike.hiker === user.sub) {
+                return (
+                    <div className='flex flex-col w-full shadow-xl bg-tan p-5 rounded-lg max-w-2xl' key={hike._id}>
+
+                        <p className='mb-3'>{hike.date}</p>
+                        <p className='mb-3'>{hike.comments}</p>
+                        {hike.summit && <p className='mb-3'>Summited: ✅</p>}
+                        <Link className='flex self-center' to={`/hike/${hike._id}/edit`}><button className="rounded-lg px-3 py-2 text-tan bg-darkest-green font-medium hover:bg-light-tan hover:text-darkest-green ease-in-out duration-300 mb-5 max-w-xs ">Edit Hike</button></Link>
+
+                    </div>)
+            })}
+
         </>
     )
 }
