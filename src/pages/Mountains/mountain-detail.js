@@ -88,11 +88,13 @@ export default function MountainDetail(props) {
             {!hikeIsLoading && mountainHikes?.map((hike) => {
                 if (hike.hiker === user.sub) {
                     return (
-                        <div key={hike._id}>
+                        <div className='flex flex-col flex-wrap space-y-9' key={hike._id}>
+                            <div className='shadow-xl bg-tan p-5 m-3 max-w-2xl rounded-lg'>
                             <p>{hike.date}</p>
                             <p >{hike.comments}</p>
                             {hike.summit && <p >✅</p>}
-                            <Link to={`/hike/${hike._id}/edit`}><button className="rounded-lg px-3 py-2 text-tan bg-darkest-green font-medium hover:bg-tan hover:text-darkest-green ease-in-out duration-300 mb-5">Edit Hike</button></Link>
+                            <Link to={`/hike/${hike._id}/edit`}><button className="rounded-lg px-3 py-2 text-tan bg-darkest-green font-medium hover:bg-tan hover:text-darkest-green ease-in-out duration-300 mb-5 max-w-xs flex center">Edit Hike</button></Link>
+                            </div>
                         </div>)
                 } else {
                     return null
@@ -107,7 +109,7 @@ export default function MountainDetail(props) {
                         <textarea
                             value={newForm.comments}
                             name="comments"
-                            placeholder="Keep your favorite details about your hike here - weather, hiking companions"
+                            placeholder="Keep your favorite details about your hike here - weather, hiking companions, etc."
                             onChange={handleChange}></textarea>
                         <div className='flex justify-between mb-5'>
                             <input
@@ -124,7 +126,7 @@ export default function MountainDetail(props) {
                                 onChange={handleChange}
                             />
                         </div>
-                        <input className="rounded-lg px-3 py-2 text-tan bg-darkest-green font-medium hover:bg-tan hover:text-darkest-green ease-in-out duration-300 mb-5 max-w-xs" type="submit" value="Create Hike" />
+                        <input className="rounded-lg px-3 py-2 text-tan bg-darkest-green font-medium hover:bg-tan hover:text-darkest-green ease-in-out duration-300 mb-5 max-w-xs flex self-center" type="submit" value="Create Hike" />
                     </form>
                 ) : (
                     <p>Log in to track your hike</p>
