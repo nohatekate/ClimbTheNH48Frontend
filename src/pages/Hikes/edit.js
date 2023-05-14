@@ -1,15 +1,11 @@
 import { useState, useEffect } from 'react'
-
 import { getHike, deleteHike, updateHike } from '../../utilities/hike-services'
 import { useParams, useNavigate } from 'react-router-dom'
 
 
 export default function Edit() {
-
     const { id } = useParams()
     const navigate = useNavigate()
-
-    // const [hike, setHike] = useState(null)
     const [isLoading, setIsLoading] = useState(true)
     const [editForm, setEditForm] = useState({
         mountain: "",
@@ -20,16 +16,13 @@ export default function Edit() {
     })
 
     async function handleRequest() {
-
         try {
             const hikeToEdit = await getHike(id)
-            // console.log( hikeToEdit)
             // setHike(hikeToEdit)
             if (hikeToEdit) {
                 const { mountain, comments, date, summit, hiker } = hikeToEdit
                 setEditForm({ mountain, comments, date, summit, hiker })
             }else{
-                console.log("whyyyyy", editForm.mountain)
                 navigate(`/nh-48/${editForm.mountain.toLowerCase()}`)
             }
             setIsLoading(false)
@@ -75,11 +68,9 @@ export default function Edit() {
     const handleSubmit = async (evt) => {
         evt.preventDefault()
         try {
-            console.log(editForm)
             const updatedHike = await updateHike(id, editForm)
 
             if (updatedHike._id) {
-                console.log(updatedHike)
                 navigate(`/nh-48/${editForm.mountain.toLowerCase()}`)
             } else {
                 throw Error('Something went wrong')
@@ -91,7 +82,7 @@ export default function Edit() {
 
     const loaded = () => (<>
         <div >
-            <h1 clasname="mb-5">Edit Your Hike</h1>
+            <h1 clasname="mb-5">Edit Your Hike on Mount {editForm.mountain}</h1>
 
         </div>
 

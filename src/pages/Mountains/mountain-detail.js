@@ -117,6 +117,7 @@ export default function MountainDetail(props) {
                                 value={newForm.date}
                                 name="date"
                                 placeholder="date hiked"
+                                required
                                 onChange={handleChange}
                             />
                             <input
