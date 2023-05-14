@@ -42,7 +42,7 @@ export default function Hikes(props) {
             if (hike.hiker === user.sub) {
                 return (
                     <div className='flex flex-col flex-wrap space-y-9' key={hike._id}>
-                        <div className='shadow-xl bg-tan p-5 m-3 max-w-2xl rounded-lg'>
+                        <div className='shadow-xl bg-tan p-5 m-3 max-w-2xl rounded-lg '>
                             <h1>{hike.mountain}</h1>
                             <p>{hike.date}</p>
                             <p >{hike.comments}</p>

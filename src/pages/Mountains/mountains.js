@@ -13,7 +13,7 @@ export default function Mountains(props) {
         <div>
 
             <h1 className="mb-5 flex justify-center">The 48 NH 4000 footers</h1>
-            <div className='flex flex-col flex-wrap space-y-5'>
+            <div className='flex self-center flex-col space-y-5 '>
                 {Object.entries(mountainData).map(([key, value]) => (
                     <Link to={`/nh-48/${key}`} className={!isAuthenticated ? "disabled-link" : ""} key={key}>
                         
