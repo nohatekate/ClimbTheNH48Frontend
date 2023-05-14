@@ -20,6 +20,7 @@ export default function MountainDetail(props) {
         summit: false,
         hiker: ""
     }
+
     const [newForm, setNewForm] = useState(initialState)
 
     const getMountainHikes = async () => {
@@ -29,12 +30,12 @@ export default function MountainDetail(props) {
         try {
             const response = await fetch(`${HIKE_BASE_URL}/${mountain.name}/${user?.sub}`, options)
             const data = await response.json()
+            console.log(data)
             setMountainHikes(data)
             setHikeIsLoading(false)
         } catch (err) {
             console.log(err)
         }
-
     }
 
     useEffect(() => {
@@ -42,16 +43,12 @@ export default function MountainDetail(props) {
         // eslint-disable-next-line
     }, [hikeIsLoading, isLoading])
 
-
-
     const handleChange = (evt) => {
         setNewForm({ ...newForm, [evt.target.name]: evt.target.value });
     };
 
     const handleSubmit = async (evt) => {
-
         evt.preventDefault()
-
         try {
             const options = {
                 method: 'POST',
@@ -66,11 +63,9 @@ export default function MountainDetail(props) {
                 setNewForm(initialState)
                 setHikeIsLoading(true)
                 return response.json()
-
             } else {
                 throw new Error("Invalid POST Request")
             }
-
         } catch (err) {
             console.log(err)
             return err
@@ -86,23 +81,18 @@ export default function MountainDetail(props) {
 
             </div>
             {!hikeIsLoading && mountainHikes?.map((hike) => {
-                if (hike.hiker === user.sub) {
+                // if (hike.hiker === user.sub) {
                     return (
                         <div className='flex flex-col flex-wrap space-y-9' key={hike._id}>
                             <div className='shadow-xl bg-tan p-5 m-3 max-w-2xl rounded-lg'>
-                            <p>{hike.date}</p>
-                            <p >{hike.comments}</p>
-                            {hike.summit && <p >✅</p>}
-                            <Link to={`/hike/${hike._id}/edit`}><button className="rounded-lg px-3 py-2 text-tan bg-darkest-green font-medium hover:bg-tan hover:text-darkest-green ease-in-out duration-300 mb-5 max-w-xs flex center">Edit Hike</button></Link>
+                                <p>{hike.date}</p>
+                                <p >{hike.comments}</p>
+                                {hike.summit && <p >✅</p>}
+                                <Link to={`/hike/${hike._id}/edit`}><button className="rounded-lg px-3 py-2 text-tan bg-darkest-green font-medium hover:bg-tan hover:text-darkest-green ease-in-out duration-300 mb-5 max-w-xs flex center">Edit Hike</button></Link>
                             </div>
                         </div>)
-                } else {
-                    return null
-                }
-
-            })}
+                    })}
             <div>
-
                 <h2 className='flex justify-center'>Track Your Hike!</h2>
                 {isAuthenticated ? (
                     <form className="flex flex-col justify-center" onSubmit={handleSubmit}>
@@ -134,7 +124,6 @@ export default function MountainDetail(props) {
                 )}
             </div>
         </>
-
     )
 }
 
