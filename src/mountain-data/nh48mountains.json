@@ -34,8 +34,8 @@
         "rank": "7",
         "elevation": "5089"
     },
-    "south-twin": {
-        "name": "South Twin",
+    "twin-south": {
+        "name": "Twin, South",
         "rank": "8",
         "elevation": "4902"
     },
@@ -49,13 +49,13 @@
         "rank": "10",
         "elevation": "4802"
     },
-    "eisenhower": {
-        "name": "Eisenhower",
+    "eisenhower-pleasant": {
+        "name": "Eisenhower [Pleasant]",
         "rank": "11",
         "elevation": "4780"
     },
-    "north-twin": {
-        "name": "North Twin",
+    "twin-north": {
+        "name": "Twin, North",
         "rank": "12",
         "elevation": "4761"
     },
@@ -69,13 +69,13 @@
         "rank": "14",
         "elevation": "4698"
     },
-    "middle-carter": {
-        "name": "Middle Carter",
+    "carter-middle": {
+        "name": "Carter, Middle",
         "rank": "15",
         "elevation": "4610"
     },
-    "west-bond": {
-        "name": "West Bond",
+    "bond-west-peak": {
+        "name": "Bond, West Peak",
         "rank": "16",
         "elevation": "4540"
     },
@@ -89,13 +89,13 @@
         "rank": "18",
         "elevation": "4459"
     },
-    "south-carter": {
-        "name": "South Carter",
+    "carter-south": {
+        "name": "Carter, South ",
         "rank": "19",
         "elevation": "4430"
     },
-    "wildcat-a-peak": {
-        "name": "Wildcat, A peak",
+    "wildcat": {
+        "name": "Wildcat",
         "rank": "20",
         "elevation": "4422"
     },
@@ -104,8 +104,8 @@
         "rank": "21",
         "elevation": "4420"
     },
-    "south-kinsman": {
-        "name": "South Kinsman",
+    "kinsman-south-peak": {
+        "name": "Kinsman, South Peak",
         "rank": "22",
         "elevation": "4358"
     },
@@ -124,18 +124,18 @@
         "rank": "25",
         "elevation": "4328"
     },
-    "south-hancock": {
+    "hancock-south-peak": {
         "name": "Hancock, South Peak",
         "rank": "26",
         "elevation": "4319"
     },
-    "pierce": {
-        "name": "Pierce",
+    "pierce-clinton": {
+        "name": "Pierce [Clinton]",
         "rank": "27",
         "elevation": "4310"
     },
-    "north-kinsman": {
-        "name": "North Kinsman",
+    "kinsman-north-peak": {
+        "name": "Kinsman, North Peak",
         "rank": "28",
         "elevation": "4293"
     },
@@ -154,8 +154,8 @@
         "rank": "31",
         "elevation": "4260"
     },
-    "north-tripyramid": {
-        "name": "North Tripyramid",
+    "tripyramid-north-peak": {
+        "name": "Tripyramid, North Peak",
         "rank": "32",
         "elevation": "4180"
     },
@@ -164,18 +164,18 @@
         "rank": "33",
         "elevation": "4170"
     },
-    "east-osceola": {
-        "name": "East Osceola",
+    "osceola-east-peak": {
+        "name": "Osceola, East Peak",
         "rank": "34",
         "elevation": "4156"
     },
-    "middle-tripyramid": {
-        "name": "Middle Tripyramid",
+    "tripyramid-middle-peak": {
+        "name": "Tripyramid, Middle Peak",
         "rank": "35",
         "elevation": "4140"
     },
-    "licannonberty": {
-        "name": "LiCannonberty",
+    "cannon-profile": {
+        "name": "Cannon [Profile]",
         "rank": "36",
         "elevation": "4100"
     },
@@ -195,9 +195,9 @@
         "elevation": "4051"
     },
     "wildcat-d-peak": {
-        "name": "Wildcat, D Peak",
+        "name": "Wildcat, 'D' Peak",
         "rank": "40",
-        "elevation": "4050"
+        "elevation": "4070"
     },
     "moriah": {
         "name": "Moriah",
