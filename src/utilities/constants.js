@@ -1,5 +1,5 @@
 
 
-const HIKE_BASE_URL = "http://localhost:4000/hike"
+const HIKE_BASE_URL = "https://nh-48.herokuapp.com/hike"
 
 export {HIKE_BASE_URL}
