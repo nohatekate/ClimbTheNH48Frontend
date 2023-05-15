@@ -83,23 +83,9 @@ export default function MountainDetail(props) {
                 <p className=''>{mountain.elevation}ft</p>
 
             </div>
-            {!hikeIsLoading && mountainHikes?.map((hike) => {
-                if (hike.hiker === user.sub) {
-                    return (
-                        <div key={hike._id}>
-                            <p>{hike.date}</p>
-                            <p>{hike.comments}</p>
-                            {hike.summit && <p>✅</p>}
-                        </div>)
-                } else {
-                    return null
-                }
 
-            })}
-            {/* I need something here that makes a conditional so that if the user has a hike they only see that hike - maybe eventually lead to an edit page / maybe also "create" page so we can create multiple hikes but I'm planning for one summit per mountain */}
-            <div>
-
-                <h2>Track Your Hike!</h2>
+            <div className='w-full'>
+                <h2 className='flex justify-center'>Track Your Hike!</h2>
                 {isAuthenticated ? (
                     <form className="flex flex-col items-center w-full " onSubmit={handleSubmit}>
                         <textarea className='w-full shadow-sm   max-w-2xl rounded-lg'

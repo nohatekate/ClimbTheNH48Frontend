@@ -7,7 +7,8 @@ export default function Hikes(props) {
 
     const [isHikesLoading, setIsHikesLoading] = useState(true)
     const [hikes, setHikes] = useState([]);
-    const { user, isAuthenticated } = useAuth0();
+    const { user, isAuthenticated, isLoading } = useAuth0();
+
     // I need conditionals in here that say if the user has hikes then show the mountain with the hike details - if no hikes message to tel them to get hiking and check mountains off the list
 
     const getHikes = async () => {
