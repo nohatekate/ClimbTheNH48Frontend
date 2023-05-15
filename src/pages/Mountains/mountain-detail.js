@@ -20,6 +20,7 @@ export default function MountainDetail(props) {
         summit: false,
         hiker: ""
     }
+
     const [newForm, setNewForm] = useState(initialState)
 
     const getMountainHikes = async () => {
@@ -27,14 +28,13 @@ export default function MountainDetail(props) {
             method: "GET"
         }
         try {
-            const response = await fetch(`${HIKE_BASE_URL}/${mountain.name}/${user.sub}`, options)
+            const response = await fetch(`${HIKE_BASE_URL}/${mountain.name}/${user?.sub}`, options)
             const data = await response.json()
             setMountainHikes(data)
             setHikeIsLoading(false)
         } catch (err) {
             console.log(err)
         }
-
     }
 
     useEffect(() => {
@@ -42,16 +42,16 @@ export default function MountainDetail(props) {
         // eslint-disable-next-line
     }, [hikeIsLoading, isLoading])
 
-
-
     const handleChange = (evt) => {
-        setNewForm({ ...newForm, [evt.target.name]: evt.target.value });
+        if (evt.target.name === 'summit') {
+            setNewForm({ ...newForm, summit: !newForm.summit })
+        } else {
+            setNewForm({ ...newForm, [evt.target.name]: evt.target.value });
+        }
     };
 
     const handleSubmit = async (evt) => {
-
         evt.preventDefault()
-
         try {
             const options = {
                 method: 'POST',
@@ -66,11 +66,9 @@ export default function MountainDetail(props) {
                 setNewForm(initialState)
                 setHikeIsLoading(true)
                 return response.json()
-
             } else {
                 throw new Error("Invalid POST Request")
             }
-
         } catch (err) {
             console.log(err)
             return err
@@ -80,9 +78,9 @@ export default function MountainDetail(props) {
     return (
         <>
 
-            <div>
-                <h1 className=''>{mountain.name}</h1>
-                <p>elevation {mountain.elevation}</p>
+            <div className='flex justify-between mb-5 w-full max-w-xl'>
+                <h1 className=''>Mt. {mountain.name}</h1>
+                <p className=''>{mountain.elevation}ft</p>
 
             </div>
             {!hikeIsLoading && mountainHikes?.map((hike) => {
@@ -103,35 +101,52 @@ export default function MountainDetail(props) {
 
                 <h2>Track Your Hike!</h2>
                 {isAuthenticated ? (
-                    <form onSubmit={handleSubmit}>
-                        <input
-                            type="text"
+                    <form className="flex flex-col items-center w-full " onSubmit={handleSubmit}>
+                        <textarea className='w-full shadow-sm   max-w-2xl rounded-lg'
                             value={newForm.comments}
                             name="comments"
-                            placeholder="Keep your favorite details about your hike here - weather, hiking companions"
-                            onChange={handleChange}
-                        />
-                        <input
-                            type="text"
-                            value={newForm.date}
-                            name="date"
-                            placeholder="date hiked"
-                            onChange={handleChange}
-                        />
-                        <input
-                            type="text"
-                            value={newForm.summit}
-                            name="summit"
-                            onChange={handleChange}
-                        />
-                        <input type="submit" value="Create Hike" />
+                            placeholder="Keep your favorite details about your hike here - weather, hiking companions, etc."
+                            onChange={handleChange}></textarea>
+                        <div className='flex justify-between items-center mb-5'>
+                            <input className='w-full shadow-sm  max-w-2xl rounded-sm mr-5 p-1'
+                                type="date"
+                                value={newForm.date}
+                                name="date"
+                                placeholder="date hiked"
+                                required
+                                onChange={handleChange}
+                            />
+                            <label className="mr-2 " htmlFor="summit">Summit!?</label>
+                            <input
+                                type="checkbox"
+                                name="summit"
+                                value={newForm.summit}
+                                onChange={handleChange}
+                                title="If you reached the top click me!"
+                            />
+                            
+                        </div>
+                        <input className="rounded-lg px-3 py-2 text-tan bg-darkest-green font-medium hover:bg-tan hover:text-darkest-green ease-in-out duration-300 mb-5 max-w-xs flex self-center" type="submit" value="Create Hike" />
                     </form>
                 ) : (
                     <p>Log in to track your hike</p>
                 )}
             </div>
-        </>
 
+            {!hikeIsLoading && mountainHikes?.map((hike) => {
+                // if (hike.hiker === user.sub) {
+                return (
+                    <div className='flex flex-col w-full shadow-xl bg-tan p-5 rounded-lg max-w-2xl mb-5 ' key={hike._id}>
+
+                        <p className='mb-3'>{hike.date}</p>
+                        <p className='mb-3'>{hike.comments}</p>
+                        {hike.summit && <p className='mb-5'>Summited: ✅</p>}
+                        <Link className='flex self-center' to={`/hike/${hike._id}/edit`}><button className="rounded-lg px-3 py-2 text-tan bg-darkest-green font-medium hover:bg-light-tan hover:text-darkest-green ease-in-out duration-300 mb-1 max-w-xs ">Edit Hike</button></Link>
+
+                    </div>)
+            })}
+
+        </>
     )
 }
 

@@ -11,3 +11,5 @@
     //         throw new Error(err)
     //     }
     // 
+
+    return (<p>Once you start tracking your hikes they'll live here on this page. Come back anytime to check your progress!</p>)
