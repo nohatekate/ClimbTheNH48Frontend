@@ -22,7 +22,7 @@ export default function Edit() {
             if (hikeToEdit) {
                 const { mountain, comments, date, summit, hiker } = hikeToEdit
                 setEditForm({ mountain, comments, date, summit, hiker })
-            }else{
+            } else {
                 navigate(`/nh-48/${editForm.mountain.toLowerCase()}`)
             }
             setIsLoading(false)
@@ -62,8 +62,12 @@ export default function Edit() {
     }
 
     const handleChange = (evt) => {
-        setEditForm({ ...editForm, [evt.target.name]: evt.target.value })
-    }
+        if (evt.target.name === 'summit') {
+            setEditForm({ ...editForm, summit: !editForm.summit })
+        } else {
+            setEditForm({ ...editForm, [evt.target.name]: evt.target.value });
+        }
+    };
 
     const handleSubmit = async (evt) => {
         evt.preventDefault()
@@ -82,37 +86,39 @@ export default function Edit() {
 
     const loaded = () => (<>
         <div >
-            <h1 clasname="mb-5">Edit Your Hike on Mount {editForm.mountain}</h1>
+            <h1 clasname="flex justify-center mb-5 w-full max-w-xl">Edit Your Hike on Mount {editForm.mountain}</h1>
 
         </div>
-
-        <form className="flex flex-col justify-center" onSubmit={handleSubmit}>
-            <textarea className='mb-5'
+        <form className="flex flex-col items-center w-full " onSubmit={handleSubmit}>
+            <textarea className='w-full shadow-sm   max-w-2xl rounded-lg'
                 value={editForm.comments}
                 name="comments"
-                placeholder="Keep your favorite details about your hike here - weather, hiking companions"
+                placeholder="Keep your favorite details about your hike here - weather, hiking companions, etc."
                 onChange={handleChange}></textarea>
-            <div className='flex justify-between mb-5 space-x-0'>
-                <input
+            <div className='flex justify-between items-center mb-5'>
+                <input className='w-full shadow-sm  max-w-2xl rounded-sm mr-5 p-1'
                     type="date"
                     value={editForm.date}
                     name="date"
+                    placeholder="date hiked"
+                    required
                     onChange={handleChange}
                 />
+                <label className="mr-2 " htmlFor="summit">Summit!?</label>
                 <input
-                    type="text"
-                    value={editForm.summit}
+                    type="checkbox"
                     name="summit"
+                    value={editForm.summit}
                     onChange={handleChange}
+                    title="If you reached the top click me!"
                 />
+
             </div>
             <div className='flex justify-center space-x-4 mb-5'>
-                <button className="rounded-lg px-3 py-2 text-darkest-green bg-tan font-medium hover:bg-darkest-green hover:text-tan ease-in-out duration-300" type="submit" >Update Hike</button>
-                <button className="rounded-lg px-3 py-2 text-darkest-green bg-tan font-medium hover:bg-red-700 hover:text-white ease-in-out duration-300 " onClick={handleHikeDelete}> Delete Hike</button>
+                <button className="rounded-lg px-3 py-2 text-light-tan bg-darkest-green font-medium hover:bg-tan hover:text-darkest-green ease-in-out duration-300" type="submit" >Update Hike</button>
+                <button className="rounded-lg px-3 py-2 text-white bg-red-800 font-medium hover:bg-red-700 hover:text-white ease-in-out duration-300 " onClick={handleHikeDelete}> Delete Hike</button>
             </div>
         </form>
-
-
 
     </>)
 

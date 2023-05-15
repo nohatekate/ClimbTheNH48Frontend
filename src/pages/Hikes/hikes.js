@@ -46,17 +46,15 @@ export default function Hikes(props) {
         return hikes.map((hike) => {
 
             return (
-
-                <Link to={`/hike/${hike._id}/edit`} key={hike._id}>
-                    <div className='flex flex-col flex-wrap space-y-9'>
-                        <div className='shadow-xl bg-tan p-5 m-3 max-w-2xl rounded-lg '>
-                            <h1>{hike.mountain}</h1>
-                            <p>{hike.date}</p>
-                            <p >{hike.comments}</p>
-                            <p>{hike.summit}</p>
-                        </div>
-                    </div>
-                </Link>)
+                <div className='mb-5 flex flex-col w-full shadow-xl bg-tan p-5 rounded-lg max-w-2xl' key={hike._id}>
+                    <h1 className='mb-3'>{hike.mountain}</h1>
+                    <p className='mb-3'>{hike.date}</p>
+                    <p className='mb-3'>{hike.comments}</p>
+                    {hike.summit && <p className='mb-5'>Summited: ✅</p>}
+                    <p>{hike.summit}</p>
+                    <Link className='flex self-center' to={`/hike/${hike._id}/edit`}><button className="rounded-lg px-3 py-2 text-tan bg-darkest-green font-medium hover:bg-light-tan hover:text-darkest-green ease-in-out duration-300 mb-1 max-w-xs ">Edit Hike</button></Link>
+                </div>
+            )
 
         })
     }
