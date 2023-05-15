@@ -1,5 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 *{
   box-sizing: border-box;
   margin: 0;
   padding:0;
+}
+
+html{
+  
+}
+
+body{
+  background-color: #f1efe9;
+  color: #2C3639;
+  height: 100vh;
+}
+
+header{
+  background-color: #2C3639;
+  padding: 1rem;
+}
+
+main{
+padding: 1rem;
+}
+
+.disabled-link {
+  pointer-events: none;
+}
+
+@layer components {
+  h1 {
+    @apply text-2xl;
+  }
+  h2 {
+    @apply text-xl;
+  }
+  h3 {
+    @apply text-lg;
+  }
+}
+
+textarea{
+  /* max-width: 50rem; */
+  height: 10rem;
+  padding: 1rem;
+  margin: 1rem;
+  resize: none;
 }

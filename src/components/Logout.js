@@ -6,7 +6,7 @@ const LogoutButton = () => {
 
     return (
         isAuthenticated && (
-            <button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
+            <button className="rounded-lg px-3 py-2 text-tan font-medium hover:bg-tan hover:text-darkest-green ease-in-out duration-300 " onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
                 Log Out
             </button>
         ));

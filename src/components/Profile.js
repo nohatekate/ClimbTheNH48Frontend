@@ -7,7 +7,6 @@ const Profile = () => {
     if (isLoading) {
         return <div>Loading ...</div>;
     }
-    // console.log(user.sub)
     return (
         isAuthenticated && (
             <div>
