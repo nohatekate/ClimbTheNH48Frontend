@@ -12,7 +12,8 @@ export default function Edit() {
         comments: "",
         date: "",
         summit: false,
-        hiker: ""
+        hiker: "",
+        urlName: ""
     })
 
     async function handleRequest() {
@@ -20,10 +21,10 @@ export default function Edit() {
             const hikeToEdit = await getHike(id)
             // setHike(hikeToEdit)
             if (hikeToEdit) {
-                const { mountain, comments, date, summit, hiker } = hikeToEdit
-                setEditForm({ mountain, comments, date, summit, hiker })
+                const { mountain, comments, date, summit, hiker, urlName } = hikeToEdit
+                setEditForm({ mountain, comments, date, summit, hiker, urlName })
             } else {
-                navigate(`/nh-48/${editForm.mountain.toLowerCase()}`)
+                navigate(`/nh-48/${editForm.urlName}`)
             }
             setIsLoading(false)
 
@@ -47,7 +48,7 @@ export default function Edit() {
 
             if (delResponse._id) {
 
-                const mountainUrl = editForm.mountain.toLowerCase()
+                const mountainUrl = editForm.urlName
                 navigate(`/nh-48/${mountainUrl}`)
             } else {
                 throw new Error("Something went wrong")
@@ -75,7 +76,7 @@ export default function Edit() {
             const updatedHike = await updateHike(id, editForm)
 
             if (updatedHike._id) {
-                navigate(`/nh-48/${editForm.mountain.toLowerCase()}`)
+                navigate(`/nh-48/${editForm.urlName}`)
             } else {
                 throw Error('Something went wrong')
             }
@@ -86,7 +87,7 @@ export default function Edit() {
 
     const loaded = () => (<>
         <div >
-            <h1 clasname="flex justify-center mb-5 w-full max-w-xl">Edit Your Hike on Mount {editForm.mountain}</h1>
+            <h1 className="flex justify-center mb-5 w-full max-w-xl">Edit Your Hike on Mount {editForm.mountain}</h1>
 
         </div>
         <form className="flex flex-col items-center w-full " onSubmit={handleSubmit}>

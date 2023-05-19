@@ -1,5 +1,5 @@
 
 
-const HIKE_BASE_URL = "https://nh-48.herokuapp.com/hike"
+const HIKE_BASE_URL = process.env.REACT_APP_HIKE_BASE_URL
 
 export {HIKE_BASE_URL}
