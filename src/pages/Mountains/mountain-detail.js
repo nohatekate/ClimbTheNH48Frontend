@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useAuth0 } from "@auth0/auth0-react";
-import { HIKE_BASE_URL } from '../../utilities/constants'
+import { HIKE_BASE_URL } from '../../utilities/constants';
+
 import { Link, useParams } from 'react-router-dom';
 
 import mountainData from '../../mountain-data/nh48mountains.json'
@@ -11,6 +12,7 @@ export default function MountainDetail(props) {
     const { user, isAuthenticated, isLoading } = useAuth0();
     const [mountainHikes, setMountainHikes] = useState([]);
     const { mountainurl } = useParams();
+
     const mountain = mountainData[mountainurl]
 
     const initialState = {
@@ -18,19 +20,24 @@ export default function MountainDetail(props) {
         comments: "",
         date: "",
         summit: false,
-        hiker: ""
+        hiker: "",
+        urlName: mountainurl
     }
 
     const [newForm, setNewForm] = useState(initialState)
+
 
     const getMountainHikes = async () => {
         const options = {
             method: "GET"
         }
+
         try {
-            const response = await fetch(`${HIKE_BASE_URL}/${mountain.name}/${user?.sub}`, options)
+            const response = await fetch(`${HIKE_BASE_URL}/${mountainurl}/${user?.sub}`, options)
             const data = await response.json()
+            console.log(data)
             setMountainHikes(data)
+
             setHikeIsLoading(false)
         } catch (err) {
             console.log(err)
@@ -61,6 +68,7 @@ export default function MountainDetail(props) {
                 body: JSON.stringify({ ...newForm, hiker: user.sub })
             }
             const response = await fetch(HIKE_BASE_URL, options)
+
 
             if (response.ok) {
                 setNewForm(initialState)
@@ -110,7 +118,7 @@ export default function MountainDetail(props) {
                                 onChange={handleChange}
                                 title="If you reached the top click me!"
                             />
-                            
+
                         </div>
                         <input className="rounded-lg px-3 py-2 text-tan bg-darkest-green font-medium hover:bg-tan hover:text-darkest-green ease-in-out duration-300 mb-5 max-w-xs flex self-center" type="submit" value="Create Hike" />
                     </form>
